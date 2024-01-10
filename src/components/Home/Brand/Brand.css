@@ -1,0 +1,150 @@
+.branding-section1 {
+  background: #51536d;
+}
+.branding1 {
+  display: flex;
+  justify-content: center;
+  gap: 76px;
+  align-items: center;
+  padding: 70px 20px;
+}
+.branding1-text h1 {
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 40px;
+  color: #fff;
+  margin-bottom: 15px;
+}
+.branding1-text h2 {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 146.9%;
+  color: #fff;
+  margin-bottom: 60px;
+}
+.branding1-button {
+  color: #373737;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 25px;
+  padding: 10px 40px;
+  border-radius: 20px;
+  background: #f8c732;
+}
+
+.branding-section2 {
+  background: #f9f8fe;
+}
+.branding2 {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 150px 20px 70px 20px;
+  flex-grow: 2;
+}
+.branding2-data{
+    width: 60%;
+    }
+    .branding2-brandfigures{
+    width: 40%;
+    }
+.branding2-heading h1 {
+  color: #373737;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-bottom: 23px;
+}
+.branding2-heading h2 {
+  color: #51536d;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  margin-bottom: 52px;
+}
+.branding2-ratings {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+.rating-text h3 {
+  color: #191a15;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 18px 0px;
+}
+.rating-text h4 {
+  color: #a6a6a6;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.brading2-brandfig{
+    display: flex;
+    align-items: start;
+    gap: 21px;
+}
+.branding2-figure {
+  padding: 15px;
+  background: #fff;
+  width: 60px;
+  box-shadow: 0px 4px 9px 0px rgba(0, 0, 0, 0.05);
+}
+.branding2-figdetails h1 {
+  color: #373737;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.branding2-figdetails h2 {
+  color: #51536d;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+}
+@media (max-width: 992px) {
+  .branding1 {
+    flex-wrap: wrap-reverse;
+    text-align: center;
+  }
+  .branding1-image img {
+    width: 100%;
+  }
+  .branding2 {
+    flex-wrap: wrap;
+  }
+  .branding2-data{
+      width: 100%;
+      }
+      .branding2-brandfigures{
+      width: 100%;
+      }
+}
+@media (max-width:576px) {
+    .branding2-heading h1 {
+        font-size: 36px;
+        text-align: center;
+    }
+    .branding2-heading h2{
+        text-align: center;
+    }
+    .branding2{
+        padding: 50px 20px;
+    }
+    .branding2-ratings {
+        width: 100%;
+        justify-content: space-between;
+    }
+      
+}

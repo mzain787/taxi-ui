@@ -1,0 +1,72 @@
+.opts {
+  padding: 20px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.opts .option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+.opts .journey-line img {
+  width: 60px;
+}
+.opts .option-no {
+  width: 32px;
+  height: 32px;
+  border-radius: 32px;
+  background: #F8C732;
+  position: relative;
+}
+.opts .option-no p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18.4px;
+  color: #FFF;
+}
+.opts .option-text h4 {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16.1px;
+  color: #F5FAEC;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .journey-line img {
+    width: 20px !important;
+  }
+  .option-no {
+    width: 20px !important;
+    height: 20px !important;
+    border-radius: 32px !important;
+  }
+  .option-no p {
+    font-size: 12px !important;
+    font-weight: 400 !important;
+  }
+}
+@media (max-width: 576px) {
+  .option-text h4 {
+    font-size: 7px !important;
+  }
+  .opts {
+    gap: 5px !important;
+  }
+  .option {
+    gap: 3px !important;
+  }
+  .journey-line img {
+    width: 10px;
+  }
+}/*# sourceMappingURL=Options.css.map */

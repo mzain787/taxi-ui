@@ -1,0 +1,105 @@
+.booking-steps {
+  padding: 87px 20px;
+}
+.bsteps-heading {
+  margin-bottom: 55px;
+}
+.bsteps-heading h1 {
+  width: 518px;
+  font-size: 44px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 44px; /* 100% */
+  letter-spacing: -1px;
+  color: #51536d;
+}
+.bsteps-heading h5 {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+  color: #ffbc2b;
+}
+.b-steps-cards{
+  display: flex;
+  /* flex-wrap: wrap; */
+  justify-content:space-between;
+  gap: 20px;
+  align-items: center;
+}
+@media (max-width:1280px) {
+  .b-steps-cards{
+    flex-wrap: wrap;
+    justify-content:center;
+    gap: 20px;
+    align-items: center;
+  }
+}
+@media (max-width: 576px) {
+  .bsteps-heading h1 {
+    width: 100%;
+    font-size: 36px;
+  }
+}
+
+/*************************** bstep card css ****************************************/
+.bstep-card {
+  width: 23.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 35.2px;
+  border-radius: 32px;
+  background: #fff;
+  box-shadow: 0px 40px 40px 0px rgba(0, 0, 0, 0.09);
+  padding: 25px;
+}
+.bs-card-data {
+  text-align: center;
+}
+.bsteps-heading h3 {
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px;
+  color: #51536d;
+}
+.bs-card-data h4 {
+  color: #51536d;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+}
+.bs-card-image-display {
+  position: relative;
+  width: 338.069px;
+  height: 268.966px;
+  border-radius: 32px;
+  background: rgba(248, 199, 50, 0.12);
+  margin: auto;
+}
+.icon-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+.icon-background {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+@media (max-width: 576px) {
+  .bstep-card{
+    width: 100%;
+    padding: 10px;
+  }
+  .bs-card-image-display{
+    width: 100%;
+
+  }
+}

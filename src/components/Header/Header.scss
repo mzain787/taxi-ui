@@ -1,0 +1,40 @@
+header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: grey;
+    z-index: 99;
+    nav{
+        padding: 26px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .bar-icon{
+            font-size: 25px;
+            color: white;
+            display: none;
+        }
+        .nav-options{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            .text{
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 18.4px;
+                color: #FFF;
+                cursor: pointer;
+            }
+        }
+    }
+}
+@media (max-width:768px) {
+    .nav-options{
+        display: none !important;
+    }
+    .bar-icon{
+        display: flex !important;
+    }
+}
