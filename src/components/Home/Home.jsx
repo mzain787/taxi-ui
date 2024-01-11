@@ -5,6 +5,7 @@ import Options from './Options/Options';
 import Bsteps from './bookingSteps/Bsteps';
 import Brand from './Brand/Brand';
 import Faq from './Faq/Faq';
+import Airports from './Airports/Airports';
 function Home() {
   return (
     <>
@@ -14,6 +15,7 @@ function Home() {
     <Bsteps/>
    <Brand/>
    <Faq/>
+   <Airports/>
     </>
   )
 }

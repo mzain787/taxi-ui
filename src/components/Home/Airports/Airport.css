@@ -1,0 +1,87 @@
+.airports {
+  padding: 70px 20px;
+}
+.aiport-images {
+  gap: 26px;
+}
+.aiports-section-heading h2 {
+  color: #51536d;
+  font-size: 44px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 44px;
+  letter-spacing: -1px;
+}
+.airport-image-section1 {
+display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.airport-image-section3 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.aiports-section-heading h5 {
+  color: #ffbc2b;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+}
+.aiports-section-heading {
+  margin-bottom: 50px;
+}
+.shape {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 20px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(36, 36, 40, 0.59) 100%
+  );
+}
+
+.airport-img {
+  position: relative;
+}
+.text-within-image h3 {
+  color: #fff;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 14px;
+  margin-bottom: 5pxs;
+}
+.text-within-image h4 {
+  color: #fff;
+  text-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px; /* 100% */
+  letter-spacing: -0.2px;
+}
+.text-within-image {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+@media (max-width:768px) {
+    .airport-image-section1, .airport-image-section2, .airport-image-section3{
+        width: 100%;
+    }
+    .airport-img img{
+        width: 100%;
+    }
+    .aiports-section-heading h2 {
+      color: #51536d;
+      font-size: 36px;
+    }
+}
