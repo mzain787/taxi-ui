@@ -6,6 +6,8 @@ import Bsteps from './bookingSteps/Bsteps';
 import Brand from './Brand/Brand';
 import Faq from './Faq/Faq';
 import Airports from './Airports/Airports';
+import TabsComponent from './Tabs/TabsComponent';
+import Testimonials from './Testimonials/Testimonials';
 function Home() {
   return (
     <>
@@ -14,8 +16,10 @@ function Home() {
     <Options/>
     <Bsteps/>
    <Brand/>
+   <Testimonials/>
    <Faq/>
    <Airports/>
+   <TabsComponent/>
     </>
   )
 }
