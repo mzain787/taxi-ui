@@ -1,10 +1,8 @@
 /* Add your own styles to customize tabs */
 .react-tabs {
     font-family: 'Arial', sans-serif;
-    display: block;     
-    text-align: center;
+    display: block;
   }
-  
   .react-tabs__tab {
     border: 1px solid #ddd;
     background-color: white;

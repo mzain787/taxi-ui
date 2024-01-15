@@ -4,20 +4,21 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import "./tabs.css"
 import Airports from '../Airports/Airports';
+import Testimonials from "../Testimonials/Testimonials"
+import SignupForm from "../Form/SignupForm"
 
 const TabsComponent = () => {
   return (
     <div className="wrapper">
-    <Tabs defaultIndex={0}>
-      <TabList className='border-none'>
+    <Tabs defaultIndex={2}>
+      <TabList className='border-none' style={{textAlign:"center"}}>
         <Tab>Tab 1</Tab>
         <Tab>Airport Images</Tab>
         <Tab>Tab 3</Tab>
       </TabList>
 
       <TabPanel>
-        <h2>Content for Tab 1</h2>
-        <p>This is the content of the first tab.</p>
+        <Testimonials/>
       </TabPanel>
 
       <TabPanel>
@@ -25,8 +26,8 @@ const TabsComponent = () => {
       </TabPanel>
 
       <TabPanel>
-        <h2>Content for Tab 3</h2>
-        <p>This is the content of the third tab.</p>
+        <h2 style={{textAlign:"center"}}>Signup</h2>
+        <SignupForm/>
       </TabPanel>
     </Tabs>
     </div>
