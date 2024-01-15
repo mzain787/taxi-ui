@@ -5,7 +5,7 @@ import airport2 from "../../../assets/images/airport2.png"
 import airport3 from "../../../assets/images/airport3.png"
 import airport4 from "../../../assets/images/airport4.png"
 import airport5 from "../../../assets/images/airport5.png"
-import shape from "../../../assets/images/shape.png"
+import shape from "../../../assets/images/Shape.png"
 
 function Airports() {
   return (
