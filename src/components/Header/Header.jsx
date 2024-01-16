@@ -2,7 +2,6 @@ import React from "react";
 import Select, { components } from 'react-select';
 import Logo from "../../assets/images/logo.svg";
 import "./Header.scss";
-
 // Custom styles for react-select
 const customStyles = {
   control: (provided) => ({

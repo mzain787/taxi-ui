@@ -31,9 +31,9 @@ header nav .nav-options .text {
   cursor: pointer;
 }
 
-@media (max-width: 768px) {
-  .nav-options {
-    display: none !important;
+@media (max-width:768px) {
+  header nav .nav-options{
+      display: none !important;
   }
   .bar-icon {
     display: flex !important;

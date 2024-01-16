@@ -1,30 +1,46 @@
 import React from 'react';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
+import InputField from './InputField';
+import SelectField from './SelectField';
 
-const SignupForm = () => {
-  const initialValues = {
-    name: '',
-    email: '',
-    phoneNumber: '',
-    password: '',
-    confirmPassword: '',
-  };
-
-  const validationSchema = Yup.object({
-    name: Yup.string().required('Name is required'),
-    email: Yup.string().email('Invalid email address').required('Email is required'),
-    phoneNumber: Yup.string()
-      .matches(/^[0-9]{10}$/, 'Invalid phone number')
-      .required('Phone number is required'),
-    password: Yup.string().min(6, 'Password must be at least 6 characters').required('Password is required'),
-    confirmPassword: Yup.string()
+const formFields = [
+  { name: 'name', label: 'Name', type: 'text' },
+  { name: 'email', label: 'Email', type: 'text' },
+  { name: 'time', label: 'Time', type: 'time' },
+  { name: 'date', label: 'Date', type: 'date' },
+  { name: 'phoneNumber', label: 'Phone Number', type: 'text' },
+  {
+    name: 'selectOption',
+    label: 'Select Option',
+    type: 'select',
+    options: [
+      { value: 'option1', label: 'Option 1' },
+      { value: 'option2', label: 'Option 2' },
+      { value: 'option3', label: 'Option 3' },
+    ],
+  },
+  { name: 'password', label: 'Password', type: 'password' },
+  {
+    name: 'confirmPassword',
+    type: 'password',
+    label: 'Confirm Password',
+    validation: Yup.string()
       .oneOf([Yup.ref('password'), null], 'Passwords must match')
       .required('Confirm Password is required'),
-  });
+  },
+];
 
+const initialValues = {};
+const validationSchema = {};
+
+formFields.forEach((field) => {
+  initialValues[field.name] = '';
+  validationSchema[field.name] = Yup.string().required(`${field.label} is required`);
+});
+
+const SignupForm = () => {
   const onSubmit = (values, { setSubmitting }) => {
-    // Handle signup logic here (e.g., send data to a server)
     console.log(values);
     setSubmitting(false);
   };
@@ -32,41 +48,38 @@ const SignupForm = () => {
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={validationSchema}
+      validationSchema={Yup.object().shape(validationSchema)}
       onSubmit={onSubmit}
     >
-      <Form style={{ maxWidth: '400px', margin: 'auto' }}>
-        <div style={{ marginBottom: '15px' }}>
-          <label htmlFor="name">Name:</label>
-          <Field type="text" id="name" name="name" style={{ width: '100%', padding: '8px' }} />
-          <ErrorMessage name="name" component="div" style={{ color: 'red' }} />
-        </div>
+      <Form style={{maxWidth: '800px', margin: 'auto', display: 'flex', gap:'20px', flexDirection: 'row', flexWrap: 'wrap' }}>
+        {formFields.map((field) => (
+          <div key={field.name} style={{ marginBottom: '15px', width: 'calc(50% - 10px)' }}>
+            <label htmlFor={field.name}>{field.label}:</label>
+            {field.type === 'select' ? (
+              <SelectField
+                options={field.options}
+                id={field.name}
+                name={field.name}
+                onChange={(selectedOption) => console.log(selectedOption)}
+                placeholder={`Select ${field.label}`}
+              />
+            ) : (
+              <InputField
+                type={field.type}
+                id={field.name}
+                name={field.name}
+                style={{ width: '100%', padding: '8px' }}
+              />
+            )}
+          </div>
+        ))}
 
-        <div style={{ marginBottom: '15px' }}>
-          <label htmlFor="email">Email:</label>
-          <Field type="email" id="email" name="email" style={{ width: '100%', padding: '8px' }} />
-          <ErrorMessage name="email" component="div" style={{ color: 'red' }} />
-        </div>
-
-        <div style={{ marginBottom: '15px' }}>
-          <label htmlFor="phoneNumber">Phone Number:</label>
-          <Field type="text" id="phoneNumber" name="phoneNumber" style={{ width: '100%', padding: '8px' }} />
-          <ErrorMessage name="phoneNumber" component="div" style={{ color: 'red' }} />
-        </div>
-
-        <div style={{ marginBottom: '15px' }}>
-          <label htmlFor="password">Password:</label>
-          <Field type="password" id="password" name="password" style={{ width: '100%', padding: '8px' }} />
-          <ErrorMessage name="password" component="div" style={{ color: 'red' }} />
-        </div>
-
-        <div style={{ marginBottom: '15px' }}>
-          <label htmlFor="confirmPassword">Confirm Password:</label>
-          <Field type="password" id="confirmPassword" name="confirmPassword" style={{ width: '100%', padding: '8px' }} />
-          <ErrorMessage name="confirmPassword" component="div" style={{ color: 'red' }} />
-        </div>
-
-        <button type="submit" style={{ background: 'blue', color: 'white', padding: '10px', border: 'none', cursor: 'pointer' }}>Sign Up</button>
+        <button
+          type="submit"
+          style={{ background: 'blue', color: 'white', fontSize:"20px", padding: '10px', border: 'none', cursor: 'pointer', width: '150px', margin:'20px auto 70px auto' }}
+        >
+          Sign Up
+        </button>
       </Form>
     </Formik>
   );

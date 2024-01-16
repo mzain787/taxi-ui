@@ -26,7 +26,7 @@ const TabsComponent = () => {
       </TabPanel>
 
       <TabPanel>
-        <h2 style={{textAlign:"center"}}>Signup</h2>
+        <h2 style={{textAlign:"center", marginTop:'20px'}}>FORM</h2>
         <SignupForm/>
       </TabPanel>
     </Tabs>
