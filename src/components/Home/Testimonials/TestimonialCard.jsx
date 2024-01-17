@@ -33,7 +33,6 @@ function TestimonialCard({ name, reviews,description }) {
         <h4>10 days ago</h4>
       </div>
       </div>
-      
     </>
   );
 }
