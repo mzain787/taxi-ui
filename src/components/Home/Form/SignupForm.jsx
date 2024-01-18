@@ -3,60 +3,48 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import InputField from './InputField';
 import SelectField from './SelectField';
+const SignupForm = ({ formFields, onSubmitCallback }) => {
+  const generateInitialValuesAndSchema = () => {
+    const initialValues = {};
+    const validationSchema = {};
 
-const formFields = [
-  { name: 'name', label: 'Name', type: 'text' },
-  { name: 'email', label: 'Email', type: 'email' },
-  {
-    name: 'Fruit',
-    label: 'Select Fruit',
-    type: 'select',
-    options: [
-      { value: 'banana', label: 'Banana' },
-      { value: 'apple', label: 'Apple' },
-      { value: 'orange', label: 'Orange' },
-    ],
-  },
-  { name: 'date', label: 'Date', type: 'date' },
-  { name: 'phoneNumber', label: 'Phone Number', type: 'text' },
-  {
-    name: 'Name',
-    label: 'Select Option',
-    type: 'select',
-    options: [
-      { value: 'option1', label: 'Option 1' },
-      { value: 'option2', label: 'Option 2' },
-      { value: 'option3', label: 'Option 3' },
-    ],
-    validation: Yup.string().required('Select Option is required'),
-  },
-  { name: 'password', label: 'Password', type: 'password' },
-  {
-    name: 'confirmPassword',
-    type: 'password',
-    label: 'Confirm Password',
-    validation: Yup.string()
-      .oneOf([Yup.ref('password'), null], 'Passwords must match')
-      .required('Confirm Password is required'),
-  }
-];
+    formFields.forEach((field) => {
+      initialValues[field.name] = '';
+      validationSchema[field.name] = field.validation || Yup.string().required(`${field.label} is required`);
+    
+      if (field.type === 'mail') {
+        validationSchema[field.name] = validationSchema[field.name]
+          .email('Invalid email format')
+          .required('Email is required');
+      }
+      if (field.name.toLowerCase() === 'name') {
+        validationSchema[field.name] = validationSchema[field.name]
+          .matches(/^[A-Za-z ]*$/, 'Name should only contain letters and spaces')
+          .required('Name is required');
+      }
+    
+      if (field.type === 'password') {
+        validationSchema[field.name] = validationSchema[field.name]
+          .min(6, 'Password must be at least 6 characters')
+          .required('Password is required');
+      }
+      if (field.type === 'phone') {
+        validationSchema[field.name] = validationSchema[field.name]
+          .matches(/^[0-9]{10}$/, 'Invalid phone number')
+          .required('Phone number is required');
+      }
+    });
+    
 
-const initialValues = {};
-const validationSchema = {};
+    return { initialValues, validationSchema };
+  };
 
-formFields.forEach((field) => {
-  initialValues[field.name] = '';
-  validationSchema[field.name] = field.validation || Yup.string().required(`${field.label} is required`);
-  if (field.type === 'email') {
-    validationSchema[field.name] = validationSchema[field.name].email('Invalid email format');
-  } else if (field.type === 'password') {
-    validationSchema[field.name] = validationSchema[field.name].min(6, 'Password must be at least 6 characters');
-  }
-});
+  const { initialValues, validationSchema } = generateInitialValuesAndSchema();
 
-const SignupForm = () => {
   const onSubmit = (values, { setSubmitting }) => {
-    console.log(values);
+    if (onSubmitCallback) {
+      onSubmitCallback(values);
+    }
     setSubmitting(false);
   };
 
@@ -76,7 +64,6 @@ const SignupForm = () => {
                   options={field.options}
                   id={field.name}
                   name={field.name}
-                  onChange={(selectedOption) => console.log(selectedOption)}
                   placeholder={field.label}
                 />
                 <ErrorMessage name={field.name} component="div" style={{ color: 'red' }} />
@@ -108,5 +95,3 @@ const SignupForm = () => {
 };
 
 export default SignupForm;
-
-
